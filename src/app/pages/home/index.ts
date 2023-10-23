@@ -34,7 +34,9 @@ export class HomeComponent {
   }
 
   atualizaLista() {
-    this._listas = this._listaService.getListas();
+    this._listaService.getListas().then((listas) =>{
+      this._listas = listas;
+    });
     console.log(this._listas);
   }
 

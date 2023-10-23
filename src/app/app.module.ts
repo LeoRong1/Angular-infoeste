@@ -11,6 +11,10 @@ import { HomeComponent } from './pages/home';
 import {  ListaFormDialogComponent } from './components/lista/lista-form-dialog';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
+import {provideFirebaseApp, initializeApp} from '@angular/fire/app';
+import firebaseConfig from 'src/firebase-config';
+import {provideFirestore,getFirestore} from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +26,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     HomeComponent,
     ListaFormDialogComponent,
     ConfirmDialogComponent,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
